@@ -1,8 +1,8 @@
-# 🛍️ Customer Shopping Behavior Analysis in Online Retail
+# 🛍 Customer Shopping Behavior Analysis in Online Retail
 
 ---
 
-## ✨ Personal Motivation *(customize this section)*
+##  Personal Motivation
 
 This project was born out of a desire to bridge **analytical rigor with business decision-making**. As an aspiring data analyst in retail and finance, I sought to replicate a real-world problem where customer data becomes the foundation for **personalized marketing**, **subscription retention**, and **strategic segmentation**. The ability to distill high-dimensional behavioral data into insights that directly influence **customer lifetime value (CLV)**, marketing ROI, and customer engagement is a powerful asset in today’s data-first enterprises.
 
