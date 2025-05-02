@@ -1,4 +1,4 @@
-# 🛍 Customer Shopping Behavior Analysis in Online Retail
+# Customer Shopping Behavior Analysis in Online Retail
 
 ---
 
