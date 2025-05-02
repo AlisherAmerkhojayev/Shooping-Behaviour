@@ -1,31 +1,28 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
 
 
 import pandas as pd
-
-
-# In[2]:
+from sklearn.preprocessing import LabelEncoder
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
+from sklearn.preprocessing import StandardScaler
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+from sklearn.linear_model import LogisticRegression
 
 
 df = pd.read_csv(r"C:\Users\Alisher Amer\Downloads\shopping_behavior_updated.csv")
 print(df)
 
 
-# In[3]:
-
-
-#checking for missing values
+#Checking for missing values
 MV = df.isnull().sum()
 print(MV)
 
 
-# In[4]:
-
-
-#checking for outliers after inspection of the dataset (no outliers were seen but just in case)
+#Checking for outliers after inspection of the dataset (no outliers were seen but just in case)
 
 Q1 = df['Purchase Amount (USD)'].quantile(0.25)
 Q3 = df['Purchase Amount (USD)'].quantile(0.75)
@@ -40,12 +37,6 @@ outliers = df[(df['Age'] < (Q1 - 1.5 * IQR)) |
 print(outliers)
 
 
-# In[7]:
-
-
-from sklearn.preprocessing import LabelEncoder
-
-# Initialize label encoders for each categorical column
 encoders = {col: LabelEncoder() for col in df.select_dtypes(include=['object']).columns}
 
 # Encode each of the columns
@@ -55,14 +46,6 @@ for col, encoder in encoders.items():
 # Display the new dataset
 df.head()
 
-
-# In[16]:
-
-
-from sklearn.cluster import KMeans
-from sklearn.metrics import silhouette_score
-from sklearn.preprocessing import StandardScaler
-import matplotlib.pyplot as plt
 
 # Selecting relevant features for customer segmentation
 features = ['Age', 'Gender', 'Category', 'Previous Purchases']
@@ -86,8 +69,6 @@ plt.title('Elbow Method For Optimal k')
 plt.show()
 
 
-# In[18]:
-
 
 n_clusters = 4
 kmeans = KMeans(n_clusters=n_clusters, random_state=42)
@@ -102,10 +83,6 @@ silhouette_avg = silhouette_score(X_scaled, clusters)
 print(silhouette_avg)
 
 
-# In[17]:
-
-
-from sklearn.decomposition import PCA
 pca = PCA(n_components=2)
 principal_components = pca.fit_transform(X_scaled)
 
@@ -119,14 +96,6 @@ plt.grid(True)
 plt.show()
 
 #We can see that points on the graph are dense in the middle
-
-
-# In[15]:
-
-
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report, accuracy_score
 
 # Calculating the average use of discounts and promo codes
 avg_discount_use = df['Discount Applied'].mean()
@@ -160,12 +129,6 @@ classification_rep = classification_report(y_test, y_pred)
 accuracy, classification_rep
 
 
-# In[19]:
-
-
-from sklearn.linear_model import LogisticRegression
-
-
 # Features for the logistic regression model
 features_for_subscription = ['Frequency of Purchases', 'Previous Purchases', 'Age', 'Gender', 'Review Rating', 
                             'Item Purchased', 'Category', 'Location', 'Discount Applied']
@@ -192,7 +155,6 @@ classification_rep_sub = classification_report(y_test_sub, y_pred_sub)
 accuracy_sub, classification_rep_sub
 
 
-# In[ ]:
 
 
 
