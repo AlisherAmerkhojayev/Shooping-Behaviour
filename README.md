@@ -8,7 +8,7 @@ This project was born out of a desire to bridge **analytical rigor with business
 
 ---
 
-## 📌 Project Summary
+## Project Summary
 
 The project applies a combination of **unsupervised and supervised machine learning techniques** to online retail customer data. The goal was to:
 
@@ -20,7 +20,7 @@ The approach emphasizes **model selection**, **feature engineering**, and **inte
 
 ---
 
-## 🗂 Dataset Overview
+## Dataset Overview
 
 - **Source**: [Kaggle - Consumer Behavior and Shopping Habits](https://www.kaggle.com/datasets/zeesolver/consumer-behavior-and-shopping-habits-dataset)
 - **Shape**: 3,901 rows × 19 columns
@@ -39,7 +39,7 @@ A few assumptions made:
 
 ---
 
-## 🤔 Analytical Questions & Rationale
+## Analytical Questions & Rationale
 
 ### 1. Can we segment customers by shopping behavior?
 Segmentation lies at the heart of **CRM (Customer Relationship Management)** and **personalized marketing**. By grouping similar customers, businesses can tailor offerings and communications to specific cohorts. Behavioral clustering also enables differentiated service strategies (e.g., VIP customers, high churn risk, discount seekers).
@@ -55,7 +55,7 @@ Efficient **resource allocation in marketing** demands precise targeting. By ide
 
 ---
 
-## 🧹 Data Preparation Strategy
+## Data Preparation Strategy
 
 - **Integrity Checks**: Confirmed zero missing values.
 - **Outlier Detection**: Used IQR method on `Purchase Amount` and `Age`. None were detected — suggesting a well-cleaned dataset.
@@ -64,9 +64,9 @@ Efficient **resource allocation in marketing** demands precise targeting. By ide
 
 ---
 
-## 📊 Modeling & Analysis
+## Modeling & Analysis
 
-### 🔹 1. KMeans Clustering (Customer Segmentation)
+### 1. KMeans Clustering (Customer Segmentation)
 
 **Features Used**:
 - `Age`, `Gender`, `Category`, `Previous Purchases`
@@ -82,7 +82,7 @@ Efficient **resource allocation in marketing** demands precise targeting. By ide
 
 ---
 
-### 🔹 2. Random Forest Classification (Target Customer Detection)
+### 2. Random Forest Classification (Target Customer Detection)
 
 **Target Definition**:
 - Customers who use both **above-average discounts and promo codes** were defined as `Target Customer`
@@ -109,7 +109,7 @@ Efficient **resource allocation in marketing** demands precise targeting. By ide
 
 ---
 
-### 🔹 3. Logistic Regression (Subscription Prediction)
+### 3. Logistic Regression (Subscription Prediction)
 
 **Features Used**:
 - `Frequency of Purchases`, `Previous Purchases`, `Age`, `Gender`, `Review Rating`, `Item Purchased`, `Category`, `Location`, `Discount Applied`
@@ -133,7 +133,7 @@ Efficient **resource allocation in marketing** demands precise targeting. By ide
 
 ---
 
-## 🛠 Tools & Libraries
+## Tools & Libraries
 
 - **Python** (Pandas, Scikit-learn, Matplotlib)
 - **Models**: KMeans, RandomForestClassifier, LogisticRegression
@@ -141,7 +141,7 @@ Efficient **resource allocation in marketing** demands precise targeting. By ide
 
 ---
 
-## 📌 Key Business Takeaways
+## Key Business Takeaways
 
 1. **Customer segments exist**, but a richer feature space (RFM, behavioral logs) could sharpen them.
 2. **Target customers can be algorithmically identified** based on promotional responsiveness — enabling more profitable ad targeting.
@@ -150,7 +150,7 @@ Efficient **resource allocation in marketing** demands precise targeting. By ide
 
 ---
 
-## 🚀 Future Work
+## Future Work
 
 - Integrate **time-based data** for sequential modeling (e.g., churn forecasting).
 - Use **web tracking** or **session logs** to enhance behavioral targeting.
